@@ -8,12 +8,16 @@ email theme, or updates an existing theme from it.
 1. Open an email (Channels › Emails › click the email).
 2. Click **Save as theme**. The button is only there for emails built with the MJML builder
    and for users who may create or edit themes.
-3. Choose:
+   <img width="497" height="481" alt="emailtotheme" src="https://github.com/user-attachments/assets/14a6bb5e-a1c3-4565-b2cb-15389a665064" />
+
+4. Choose:
    - **Create a new theme**: enter a name. The folder name is made from it
      ("Spring Sale" → `themes/spring-sale`).
+     <img width="1104" height="410" alt="emailtotheme2" src="https://github.com/user-attachments/assets/5a69c112-b7ee-4e16-aca3-1c33efe8654d" />
+
    - **Update an existing theme**: pick the theme. It keeps its name and folder.
-4. Optionally upload a thumbnail (PNG, JPEG, GIF or WebP; converted to PNG, at most 600 px wide).
-5. Click **Save theme**. New emails can now start from the theme.
+5. Optionally upload a thumbnail (PNG, JPEG, GIF or WebP; converted to PNG, at most 600 px wide).
+6. Click **Save theme**. New emails can now start from the theme.
 
 Emails that already use a theme do not change when the theme is updated: Mautic copies a theme
 into an email when the email is created.
