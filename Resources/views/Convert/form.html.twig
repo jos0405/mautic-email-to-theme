@@ -1,0 +1,67 @@
+{#
+  Variables
+    - form
+    - email
+    - themes: folder => name of the themes that can be updated
+#}
+{% extends '@MauticCore/Default/content.html.twig' %}
+
+{% block mauticContent %}emailToTheme{% endblock %}
+
+{% block headerTitle %}{{ 'mautic.email_to_theme.header'|trans({'%name%': email.name}) }}{% endblock %}
+
+{% block content %}
+{{ form_start(form) }}
+<div class="box-layout">
+    <div class="col-md-9 height-auto">
+        <div class="pa-md">
+            <p class="text-secondary">{{ 'mautic.email_to_theme.intro'|trans }}</p>
+
+            {{ form_errors(form) }}
+
+            {{ form_row(form.mode) }}
+
+            <div class="email-to-theme-new">
+                {{ form_row(form.name) }}
+            </div>
+
+            <div class="email-to-theme-update">
+                {{ form_row(form.target) }}
+                <div class="alert alert-info">{{ 'mautic.email_to_theme.update_help'|trans }}</div>
+            </div>
+
+            {{ form_row(form.thumbnail) }}
+            <p class="help-block email-to-theme-new">{{ 'mautic.email_to_theme.thumbnail_help.new'|trans }}</p>
+            <p class="help-block email-to-theme-update">{{ 'mautic.email_to_theme.thumbnail_help.update'|trans }}</p>
+        </div>
+    </div>
+    <div class="col-md-3 height-auto bdr-l">
+        <div class="pa-md">
+            <h6 class="text-secondary mb-xs">{{ 'mautic.email_to_theme.what_happens'|trans }}</h6>
+            <ul class="pl-md">
+                <li>{{ 'mautic.email_to_theme.what_happens.content'|trans }}</li>
+                <li>{{ 'mautic.email_to_theme.what_happens.images'|trans }}</li>
+                <li>{{ 'mautic.email_to_theme.what_happens.existing'|trans }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}
+
+<script>
+(function () {
+    var form = document.querySelector('form[name="email_to_theme"]');
+    if (!form) {
+        return;
+    }
+    function sync() {
+        var checked = form.querySelector('input[name="email_to_theme[mode]"]:checked');
+        var mode = checked ? checked.value : 'new';
+        form.querySelectorAll('.email-to-theme-new').forEach(function (el) { el.style.display = 'new' === mode ? '' : 'none'; });
+        form.querySelectorAll('.email-to-theme-update').forEach(function (el) { el.style.display = 'update' === mode ? '' : 'none'; });
+    }
+    form.querySelectorAll('input[name="email_to_theme[mode]"]').forEach(function (el) { el.addEventListener('change', sync); });
+    sync();
+})();
+</script>
+{% endblock %}

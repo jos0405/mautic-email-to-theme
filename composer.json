@@ -1,0 +1,16 @@
+{
+    "name": "friendly/mautic-email-to-theme",
+    "description": "Turn a Mautic email built with the MJML builder into an email theme, or update an existing theme from it",
+    "type": "mautic-plugin",
+    "license": "GPL-3.0-or-later",
+    "keywords": ["mautic", "plugin", "theme", "mjml", "grapesjs"],
+    "extra": {
+        "install-directory-name": "EmailToThemeBundle"
+    },
+    "require": {
+        "php": ">=8.2",
+        "ext-gd": "*",
+        "ext-zip": "*",
+        "mautic/core-lib": "^7.0"
+    }
+}
